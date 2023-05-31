@@ -275,5 +275,5 @@ boton_generar_informe_cliente.pack(pady=10, padx=50, ipadx=20, ipady=5, fill=tk.
 # Centrar el contenedor de botones en la ventana
 contenedor_botones.pack(expand=True, fill=tk.BOTH)
 
-# Ejecutar el bucle principal de la ventana
+# Ejeecutar el bucle principal de la ventana
 ventana_clientes.mainloop()

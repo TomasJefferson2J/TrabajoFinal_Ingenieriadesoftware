@@ -1,23 +1,20 @@
 import tkinter as tk
-import subprocess
 
 def abrir_resumen_ventas():
     # Lógica para abrir la ventana de Resumen de Ventas
     pass
 
 def abrir_gestionar_productos():
-    # Abrir el archivo productos.py
-    subprocess.run(["python", "productos.py"])
-
+    # Lógica para abrir la ventana de Gestionar productos
+    pass
 
 def abrir_registro_ventas():
     # Lógica para abrir la ventana de Registro de Ventas
     pass
 
 def abrir_gestionar_clientes():
-    # Abrir el archivo clientes.py
-    subprocess.run(["python", "clientes.py"])
-
+    # Lógica para abrir la ventana de Gestionar Clientes
+    pass
 
 # Crear la ventana principal del dashboard
 ventana_dashboard = tk.Tk()
@@ -37,26 +34,40 @@ titulo.pack(pady=20)
 
 # Contenedor para los botones
 contenedor_botones = tk.Frame(ventana_dashboard, bg=color_fondo)
-contenedor_botones.pack(pady=50)
+contenedor_botones.pack(side=tk.LEFT, fill=tk.Y, padx=20)
 
 # Botón Resumen de Ventas
 boton_resumen_ventas = tk.Button(contenedor_botones, text="Resumen de Ventas", font=("Arial", 18), bg=color_boton, fg="white", command=abrir_resumen_ventas)
-boton_resumen_ventas.pack(pady=10, padx=100, ipadx=50)
+boton_resumen_ventas.pack(pady=10, padx=20, ipadx=10, ipady=5)
 
 # Botón Gestionar productos
 boton_gestionar_productos = tk.Button(contenedor_botones, text="Gestionar productos", font=("Arial", 18), bg=color_boton, fg="white", command=abrir_gestionar_productos)
-boton_gestionar_productos.pack(pady=10, padx=100, ipadx=50)
+boton_gestionar_productos.pack(pady=10, padx=20, ipadx=10, ipady=5)
 
 # Botón Registro de Ventas
 boton_registro_ventas = tk.Button(contenedor_botones, text="Registro de Ventas", font=("Arial", 18), bg=color_boton, fg="white", command=abrir_registro_ventas)
-boton_registro_ventas.pack(pady=10, padx=100, ipadx=50)
+boton_registro_ventas.pack(pady=10, padx=20, ipadx=10, ipady=5)
 
 # Botón Gestionar Clientes
 boton_gestionar_clientes = tk.Button(contenedor_botones, text="Gestionar Clientes", font=("Arial", 18), bg=color_boton, fg="white", command=abrir_gestionar_clientes)
-boton_gestionar_clientes.pack(pady=10, padx=100, ipadx=50)
+boton_gestionar_clientes.pack(pady=10, padx=20, ipadx=10, ipady=5)
+
+# Separador vertical
+separator = tk.Frame(ventana_dashboard, width=2, bg="black")
+separator.pack(side=tk.LEFT, fill=tk.Y)
+
+# Contenedor para el contenido principal
+contenedor_contenido = tk.Frame(ventana_dashboard, bg=color_fondo)
+contenedor_contenido.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=20, pady=20)
+
+
+# Ejemplo de un Label en el contenido principal
+label_contenido = tk.Label(contenedor_contenido, text="Contenido principal", font=("Arial", 18), fg="black", bg=color_fondo)
+label_contenido.pack(pady=10)
+
 
 # Centrar el contenedor de botones en la ventana
-contenedor_botones.pack(expand=True, fill=tk.BOTH)
+contenedor_botones.pack(side=tk.LEFT, fill=tk.Y)
 
 # Ejecutar el bucle principal de la ventana
 ventana_dashboard.mainloop()
