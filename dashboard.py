@@ -18,9 +18,6 @@ def abrir_gestionar_clientes():
     # Abrir el archivo clientes.py
     subprocess.run(["python", "clientes.py"])
 
-def abrir_carrito():
-    # Lógica para abrir la ventana del Carrito de Compras
-    pass
 
 # Crear la ventana principal del dashboard
 ventana_dashboard = tk.Tk()
@@ -57,10 +54,6 @@ boton_registro_ventas.pack(pady=10, padx=100, ipadx=50)
 # Botón Gestionar Clientes
 boton_gestionar_clientes = tk.Button(contenedor_botones, text="Gestionar Clientes", font=("Arial", 18), bg=color_boton, fg="white", command=abrir_gestionar_clientes)
 boton_gestionar_clientes.pack(pady=10, padx=100, ipadx=50)
-
-# Botón Carrito de Compras
-boton_carrito = tk.Button(contenedor_botones, text="Carrito de Compras", font=("Arial", 18), bg=color_boton, fg="white", command=abrir_carrito)
-boton_carrito.pack(pady=10, padx=100, ipadx=50)
 
 # Centrar el contenedor de botones en la ventana
 contenedor_botones.pack(expand=True, fill=tk.BOTH)
