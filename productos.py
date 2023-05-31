@@ -278,7 +278,7 @@ def generar_informe_producto():
         # Validar los campos de entrada
         if nombre and categoria:
             # Realizar la lógica para generar el informe del producto
-            
+
 
             # Mostrar mensaje de éxito
             tk.messagebox.showinfo("Éxito", "El informe del producto se ha generado correctamente.")
