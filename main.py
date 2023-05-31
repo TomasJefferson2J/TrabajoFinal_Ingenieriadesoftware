@@ -17,7 +17,6 @@ if __name__ == '__main__':
 
 import tkinter as tk
 from tkinter import messagebox
-import subprocess
 
 def iniciar_sesion():
     usuario = campo_usuario.get()
@@ -41,7 +40,19 @@ ventana_login = tk.Tk()
 ventana_login.title("Aplicación de Ventas")
 ventana_login.geometry("360x480")
 
-# Fondo de la ventana
+# Configurar la ventana para que no se pueda redimensionar
+ventana_login.resizable(False, False)
+
+# Obtener el ancho y alto de la pantalla
+screen_width = ventana_login.winfo_screenwidth()
+screen_height = ventana_login.winfo_screenheight()
+
+# Calcular la posición para centrar la ventana
+x = (screen_width - 360) // 2
+y = (screen_height - 480) // 2
+
+# Establecer la posición de la ventana en el centro de la pantalla
+ventana_login.geometry(f"360x480+{x}+{y}")
 
 # Marco para centrar los elementos
 marco = tk.Frame(ventana_login, bg="white")
@@ -56,10 +67,6 @@ campo_usuario = tk.Entry(marco, font=("Arial", 12), bg="#F0F0F0")
 campo_usuario.insert(0, "Usuario")
 campo_usuario.pack(pady=10)
 
-# Fondo de la ventana
-
-ventana_login.configure(bg="#E6F1F6")
-
 # Campo de entrada para contraseña
 campo_contrasena = tk.Entry(marco, font=("Arial", 12), show="*", bg="#F0F0F0")
 campo_contrasena.insert(0, "Contraseña")
@@ -68,6 +75,11 @@ campo_contrasena.pack(pady=10)
 # Botón de inicio de sesión
 boton_login = tk.Button(marco, text="Iniciar sesión", font=("Arial", 14, "bold"), bg="#1DA1F2", fg="white", command=iniciar_sesion)
 boton_login.pack(pady=10)
+
+#pantalla
+
+ventana_login.geometry("305x280")
+
 
 # Ejecutar el bucle principal de la ventana de login
 ventana_login.mainloop()
