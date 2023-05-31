@@ -39,27 +39,25 @@ def abrir_dashboard():
 # Crear una instancia de la ventana de login
 ventana_login = tk.Tk()
 ventana_login.title("Aplicación de Ventas")
-ventana_login.geometry("400x300")
+ventana_login.geometry("360x480")
 
-# Configurar el fondo con un color agradable
-color_fondo = "#F5F5F5"
-ventana_login.configure(bg=color_fondo)
+# Fondo de la ventana
 
 # Marco para centrar los elementos
-marco = tk.Frame(ventana_login, bg=color_fondo)
-marco.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+marco = tk.Frame(ventana_login, bg="white")
+marco.place(relx=0.5, rely=0.5, anchor=tk.CENTER, width=300, height=300)
 
 # Logo de la aplicación
-logo = tk.Label(marco, text="Logo de la aplicación", font=("Arial", 16, "bold"), fg="#1DA1F2", bg=color_fondo)
-logo.pack(pady=(0, 20))
+logo = tk.Label(marco, text="Logo de la aplicación", font=("Arial", 16, "bold"), fg="#1DA1F2", bg="white")
+logo.pack(pady=(40, 20))
 
 # Campo de entrada para usuario
-campo_usuario = tk.Entry(marco, font=("Arial", 12))
+campo_usuario = tk.Entry(marco, font=("Arial", 12), bg="#F0F0F0")
 campo_usuario.insert(0, "Usuario")
 campo_usuario.pack(pady=10)
 
 # Campo de entrada para contraseña
-campo_contrasena = tk.Entry(marco, font=("Arial", 12), show="*")
+campo_contrasena = tk.Entry(marco, font=("Arial", 12), show="*", bg="#F0F0F0")
 campo_contrasena.insert(0, "Contraseña")
 campo_contrasena.pack(pady=10)
 
@@ -69,6 +67,7 @@ boton_login.pack(pady=10)
 
 # Ejecutar el bucle principal de la ventana de login
 ventana_login.mainloop()
+
 
 
 
