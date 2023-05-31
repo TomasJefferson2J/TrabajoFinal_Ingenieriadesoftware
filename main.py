@@ -56,6 +56,10 @@ campo_usuario = tk.Entry(marco, font=("Arial", 12), bg="#F0F0F0")
 campo_usuario.insert(0, "Usuario")
 campo_usuario.pack(pady=10)
 
+# Fondo de la ventana
+
+ventana_login.configure(bg="#E6F1F6")
+
 # Campo de entrada para contraseña
 campo_contrasena = tk.Entry(marco, font=("Arial", 12), show="*", bg="#F0F0F0")
 campo_contrasena.insert(0, "Contraseña")
