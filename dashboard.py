@@ -12,6 +12,7 @@ def abrir_gestionar_productos():
 
 def abrir_registro_ventas():
     # Lógica para abrir la ventana de Registro de Ventas
+    subprocess.run(["python", "registro_de_ventas.py"])
     pass
 
 def abrir_gestionar_clientes():
