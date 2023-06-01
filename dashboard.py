@@ -3,6 +3,7 @@ import subprocess
 
 def abrir_resumen_ventas():
     # Lógica para abrir la ventana de Resumen de Ventas
+    subprocess.run(["python", "abrir_resumen_de_ventas.py"])
     pass
 
 def abrir_gestionar_productos():
