@@ -1,7 +1,7 @@
 import tkinter as tk
+import tkinter.ttk as ttk
 from tkinter import messagebox
 from datetime import date
-
 
 def guardar_venta():
     cliente = entry_cliente.get()
@@ -16,6 +16,18 @@ def guardar_venta():
         entry_cliente.delete(0, tk.END)
         entry_producto.delete(0, tk.END)
         entry_cantidad.delete(0, tk.END)
+
+        # Agregar la información de la venta al cuadro grande
+        producto_valor = tk.Label(cuadro_grande, text=producto, font=fuente_entry, anchor="w", width=20)
+        producto_valor.grid(row=1, column=0)
+        cantidad_valor = tk.Label(cuadro_grande, text=cantidad, font=fuente_entry, anchor="w", width=10)
+        cantidad_valor.grid(row=1, column=1)
+        precio_valor = tk.Label(cuadro_grande, text="...", font=fuente_entry, anchor="w", width=10)
+        precio_valor.grid(row=1, column=2)
+        descuento_valor = tk.Label(cuadro_grande, text="...", font=fuente_entry, anchor="w", width=10)
+        descuento_valor.grid(row=1, column=3)
+        precio_total_valor = tk.Label(cuadro_grande, text="...", font=fuente_entry, anchor="w", width=10)
+        precio_total_valor.grid(row=1, column=4)
 
 
 # Crear la ventana de registro de ventas
@@ -73,11 +85,24 @@ boton_cancelar.grid(row=4, column=1, padx=10, pady=10, sticky="e")
 contenedor_formulario.pack()
 
 # Cuadro grande
-cuadro_grande = tk.Text(ventana_registro_ventas, font=fuente_entry)
+cuadro_grande = tk.Frame(ventana_registro_ventas, bg="white", relief="solid", borderwidth=1)
 cuadro_grande.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
 
-# Ejecutar la aplicaciónn
+# Encabezados de la tabla
+encabezados = ["Producto", "Cantidad", "Precio", "Descuento", "Precio Total"]
+for col, encabezado in enumerate(encabezados):
+    label_encabezado = tk.Label(cuadro_grande, text=encabezado, font=fuente_entry, anchor="w", width=15, bg="white", padx=5)
+    label_encabezado.grid(row=0, column=col)
+    if col > 0:
+        separator = ttk.Separator(cuadro_grande, orient="vertical")
+        separator.grid(row=0, column=col, sticky="ns")
+
+
+
+# Ejecutar la aplicación
 ventana_registro_ventas.mainloop()
+
+
 
 
 
