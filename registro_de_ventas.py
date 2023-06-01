@@ -3,6 +3,9 @@ import tkinter.ttk as ttk
 from tkinter import messagebox
 from datetime import date
 
+# Variable para almacenar los datos de las ventas
+datos_ventas = []
+
 def guardar_venta():
     cliente = entry_cliente.get()
     producto = entry_producto.get()
@@ -17,18 +20,39 @@ def guardar_venta():
         entry_producto.delete(0, tk.END)
         entry_cantidad.delete(0, tk.END)
 
-        # Agregar la información de la venta al cuadro grande
-        producto_valor = tk.Label(cuadro_grande, text=producto, font=fuente_entry, anchor="w", width=20)
-        producto_valor.grid(row=1, column=0)
-        cantidad_valor = tk.Label(cuadro_grande, text=cantidad, font=fuente_entry, anchor="w", width=10)
-        cantidad_valor.grid(row=1, column=1)
-        precio_valor = tk.Label(cuadro_grande, text="...", font=fuente_entry, anchor="w", width=10)
-        precio_valor.grid(row=1, column=2)
-        descuento_valor = tk.Label(cuadro_grande, text="...", font=fuente_entry, anchor="w", width=10)
-        descuento_valor.grid(row=1, column=3)
-        precio_total_valor = tk.Label(cuadro_grande, text="...", font=fuente_entry, anchor="w", width=10)
-        precio_total_valor.grid(row=1, column=4)
+        # Añadir los datos de la venta a la lista
+        datos_venta = (producto, cantidad, "...", "...", "...")
+        datos_ventas.append(datos_venta)
 
+        # Actualizar el cuadro grande con los nuevos datos
+        actualizar_cuadro_grande()
+
+def actualizar_cuadro_grande():
+    # Eliminar todas las etiquetas del cuadro grande
+    for widget in cuadro_grande.winfo_children():
+        widget.destroy()
+
+    # Encabezados de la tabla
+    encabezados = ["Producto", "Cantidad", "Precio", "Descuento", "Precio Total"]
+    for col, encabezado in enumerate(encabezados):
+        label_encabezado = tk.Label(cuadro_grande, text=encabezado, font=fuente_entry, anchor="w", width=15, bg="white", padx=5)
+        label_encabezado.grid(row=0, column=col)
+        if col > 0:
+            separator = ttk.Separator(cuadro_grande, orient="vertical")
+            separator.grid(row=0, column=col, sticky="ns")
+
+    # Datos de las ventas
+    for i, datos_venta in enumerate(datos_ventas):
+        producto_valor = tk.Label(cuadro_grande, text=datos_venta[0], font=fuente_entry, anchor="w", width=20)
+        producto_valor.grid(row=i+1, column=0)
+        cantidad_valor = tk.Label(cuadro_grande, text=datos_venta[1], font=fuente_entry, anchor="w", width=10)
+        cantidad_valor.grid(row=i+1, column=1)
+        precio_valor = tk.Label(cuadro_grande, text=datos_venta[2], font=fuente_entry, anchor="w", width=10)
+        precio_valor.grid(row=i+1, column=2)
+        descuento_valor = tk.Label(cuadro_grande, text=datos_venta[3], font=fuente_entry, anchor="w", width=10)
+        descuento_valor.grid(row=i+1, column=3)
+        precio_total_valor = tk.Label(cuadro_grande, text=datos_venta[4], font=fuente_entry, anchor="w", width=10)
+        precio_total_valor.grid(row=i+1, column=4)
 
 # Crear la ventana de registro de ventas
 ventana_registro_ventas = tk.Tk()
@@ -97,10 +121,11 @@ for col, encabezado in enumerate(encabezados):
         separator = ttk.Separator(cuadro_grande, orient="vertical")
         separator.grid(row=0, column=col, sticky="ns")
 
-
-
 # Ejecutar la aplicación
 ventana_registro_ventas.mainloop()
+
+
+
 
 
 
