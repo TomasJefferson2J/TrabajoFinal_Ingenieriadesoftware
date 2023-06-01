@@ -4,22 +4,18 @@ import subprocess
 def abrir_resumen_ventas():
     # Lógica para abrir la ventana de Resumen de Ventas
     subprocess.run(["python", "abrir_resumen_de_ventas.py"])
-    pass
 
 def abrir_gestionar_productos():
     # Abrir el archivo productos.py
     subprocess.run(["python", "productos.py"])
 
-
 def abrir_registro_ventas():
     # Lógica para abrir la ventana de Registro de Ventas
     subprocess.run(["python", "registro_de_ventas.py"])
-    pass
 
 def abrir_gestionar_clientes():
     # Abrir el archivo clientes.py
     subprocess.run(["python", "clientes.py"])
-
 
 # Crear la ventana principal del dashboard
 ventana_dashboard = tk.Tk()
@@ -62,3 +58,4 @@ contenedor_botones.pack(expand=True, fill=tk.BOTH)
 
 # Ejecutar el bucle principal de la ventana
 ventana_dashboard.mainloop()
+
