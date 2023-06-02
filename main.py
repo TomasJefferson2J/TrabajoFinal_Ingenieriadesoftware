@@ -58,35 +58,29 @@ ventana_login.geometry(f"360x480+{x}+{y}")
 marco = tk.Frame(ventana_login, bg="white")
 marco.place(relx=0.5, rely=0.5, anchor=tk.CENTER, width=300, height=300)
 
-
 # Logo de la aplicación
-logo = tk.Label(marco, text="Logo de la aplicación", font=("Arial", 16, "bold"), fg="#1DA1F2", bg="white")
+logo = tk.Label(marco, text="BIENVENIDO", font=("Arial", 16, "bold"), fg="#1DA1F2", bg="white")
 logo.pack(pady=(40, 20))
+
 
 # Campo de entrada para usuario
 campo_usuario = tk.Entry(marco, font=("Arial", 12), bg="white",border=0)
 campo_usuario.insert(0, "Usuario")
-campo_usuario.pack(pady=10)
+campo_usuario.pack(pady=19)
+
 
 # Campo de entrada para contraseña
 campo_contrasena = tk.Entry(marco, font=("Arial", 12), show="*", bg="white",border=0)
 campo_contrasena.insert(0, "Contraseña")
-campo_contrasena.pack(pady=10)
-
+campo_contrasena.pack(pady=19)
 
 # Botón de inicio de sesión
 boton_login = tk.Button(marco, text="Iniciar sesión", font=("Arial", 14, "bold"), bg="#1DA1F2", fg="white", command=iniciar_sesion)
-boton_login.pack(pady=20)
+boton_login.pack(pady=10)
 
 #pantalla
 
-ventana_login.geometry("305x280")
-
+ventana_login.geometry("300x280")
 
 # Ejecutar el bucle principal de la ventana de login
 ventana_login.mainloop()
-
-
-
-
-
