@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import ttk
-from PIL import ImageTk, Image
 import subprocess
 
 def abrir_resumen_ventas():
@@ -19,65 +18,61 @@ def abrir_gestionar_clientes():
     # Abrir el archivo clientes.py
     subprocess.run(["python", "clientes.py"])
 
-# Crear la ventana principal del dashboard
-ventana_dashboard = tk.Tk()
-ventana_dashboard.title("Panel de Control - Sistema de Ventas")
-ventana_dashboard.geometry("800x600")
+# Crear la ventana principal
+ventana = tk.Tk()
+ventana.title("División en tres secciones")
+ventana.geometry("800x600")
 
-# Configurar el fondo y estilos
-color_fondo = "#F5F5F5"
-color_boton = "#1DA1F2"
-fuente_titulo = ("Arial", 24, "bold")
+# Colores de fondo para cada sección
+color_negro = "#0D1117"
+color_blanco = "#FFFFFF"
+color_gris_oscuro = "#24292E"
 
-ventana_dashboard.configure(bg=color_fondo)
+# Barra de navegación vertical (sección izquierda)
+barra_navegacion = tk.Frame(ventana, bg=color_negro, width=200)
+barra_navegacion.pack(side=tk.LEFT, fill=tk.Y)
 
-# Contenedor principal
-contenedor_principal = tk.Frame(ventana_dashboard, bg=color_fondo)
-contenedor_principal.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
+# Calcular el espacio entre los botones
+espacio_botones = 30
 
-# Parte izquierda - Contenedor para los botones
-contenedor_botones = tk.Frame(contenedor_principal, bg=color_fondo)
-contenedor_botones.pack(side=tk.LEFT, padx=20)
+# Espacio en blanco para separar los botones
+espacio_blanco = tk.Frame(barra_navegacion, bg=color_negro, height=20)
+espacio_blanco.pack()
 
-# Título del panel de control
-titulo = tk.Label(contenedor_botones, text="Panel de Control", font=("Arial", 11, "bold"), fg="#1DA1F2", bg=color_fondo)
-titulo.pack(pady=(20, 0), anchor="w")  # Alinear a la izquierda (west)
-titulo.config(width=15)  # Reducir el ancho del título
+# Contenedor de los botones
+contenedor_botones = tk.Frame(barra_navegacion, bg=color_negro)
+contenedor_botones.pack(pady=espacio_botones)
 
 # Botón Resumen de Ventas
 boton_resumen_ventas = ttk.Button(contenedor_botones, text="Resumen de Ventas", style="Boton.TButton", command=abrir_resumen_ventas)
-boton_resumen_ventas.pack(pady=20, ipadx=20, anchor="w")  # Anclar a la izquierda (west)
+boton_resumen_ventas.pack(pady=espacio_botones)
 
 # Botón Gestionar productos
 boton_gestionar_productos = ttk.Button(contenedor_botones, text="Gestionar productos", style="Boton.TButton", command=abrir_gestionar_productos)
-boton_gestionar_productos.pack(pady=20, ipadx=20, anchor="w")  # Anclar a la izquierda (west)
+boton_gestionar_productos.pack(pady=espacio_botones)
 
 # Botón Registro de Ventas
 boton_registro_ventas = ttk.Button(contenedor_botones, text="Registro de Ventas", style="Boton.TButton", command=abrir_registro_ventas)
-boton_registro_ventas.pack(pady=20, ipadx=20, anchor="w")  # Anclar a la izquierda (west)
+boton_registro_ventas.pack(pady=espacio_botones)
 
-# Gestionar Clientes
+# Botón Gestionar Clientes
 boton_gestionar_clientes = ttk.Button(contenedor_botones, text="Gestionar Clientes", style="Boton.TButton", command=abrir_gestionar_clientes)
-boton_gestionar_clientes.pack(pady=20, ipadx=20, anchor="w")  # Anclar a la izquierda (west)
+boton_gestionar_clientes.pack(pady=espacio_botones)
 
-# Parte central y derecha (se deja para futuras modificaciones)
-contenedor_central = tk.Frame(contenedor_principal, bg=color_fondo)
-contenedor_central.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+# Área de contenido principal (sección central)
+contenido_principal = tk.Frame(ventana, bg=color_blanco)
+contenido_principal.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
-# Parte superior - Nombre "Loren"
-nombre_loren = tk.Label(contenedor_central, text="Loren", font=("Arial", 36, "bold"), fg="#FFFFFF", bg=color_fondo)
-nombre_loren.pack(pady=(40, 20))
+# Barra de navegación horizontal (sección superior dentro del contenido principal)
+barra_navegacion_horizontal = tk.Frame(contenido_principal, bg=color_gris_oscuro, height=80)
+barra_navegacion_horizontal.pack(fill=tk.X)
 
-# Parte inferior - Gráficos
-graficos = tk.Frame(contenedor_central, bg="#FFFFFF")
-graficos.pack(pady=(0, 20), padx=40, fill=tk.BOTH, expand=True)
-
-
+# Resto del contenido principal (sección inferior dentro del contenido principal)
+contenido_principal_resto = tk.Frame(contenido_principal, bg=color_blanco)
+contenido_principal_resto.pack(fill=tk.BOTH, expand=True)
 
 # Ejecutar el bucle principal de la ventana
-ventana_dashboard.mainloop()
-
-
+ventana.mainloop()
 
 
 
