@@ -31,18 +31,18 @@ fuente_titulo = ("Arial", 24, "bold")
 
 ventana_dashboard.configure(bg=color_fondo)
 
+# Contenedor principal
+contenedor_principal = tk.Frame(ventana_dashboard, bg=color_fondo)
+contenedor_principal.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
 
-
+# Parte izquierda - Contenedor para los botones
+contenedor_botones = tk.Frame(contenedor_principal, bg=color_fondo)
+contenedor_botones.pack(side=tk.LEFT, padx=20)
 
 # Título del panel de control
-titulo = tk.Label(ventana_dashboard, text="Panel de Control", font=("Arial", 11, "bold"), fg="#1DA1F2", bg=color_fondo)
-titulo.pack(pady=(20, 0), padx=20, anchor="w")  # Alinear a la izquierda (west)
+titulo = tk.Label(contenedor_botones, text="Panel de Control", font=("Arial", 11, "bold"), fg="#1DA1F2", bg=color_fondo)
+titulo.pack(pady=(20, 0), anchor="w")  # Alinear a la izquierda (west)
 titulo.config(width=15)  # Reducir el ancho del título
-
-
-# Contenedor para los botones
-contenedor_botones = tk.Frame(ventana_dashboard, bg=color_fondo)
-contenedor_botones.pack(pady=(10, 50), padx=20, anchor="w")  # Alinear a la izquierda (west)
 
 # Botón Resumen de Ventas
 boton_resumen_ventas = ttk.Button(contenedor_botones, text="Resumen de Ventas", style="Boton.TButton", command=abrir_resumen_ventas)
@@ -60,9 +60,24 @@ boton_registro_ventas.pack(pady=20, ipadx=20, anchor="w")  # Anclar a la izquier
 boton_gestionar_clientes = ttk.Button(contenedor_botones, text="Gestionar Clientes", style="Boton.TButton", command=abrir_gestionar_clientes)
 boton_gestionar_clientes.pack(pady=20, ipadx=20, anchor="w")  # Anclar a la izquierda (west)
 
+# Parte central y derecha (se deja para futuras modificaciones)
+contenedor_central = tk.Frame(contenedor_principal, bg=color_fondo)
+contenedor_central.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
+# Parte superior - Nombre "Loren"
+nombre_loren = tk.Label(contenedor_central, text="Loren", font=("Arial", 36, "bold"), fg="#FFFFFF", bg=color_fondo)
+nombre_loren.pack(pady=(40, 20))
+
+# Parte inferior - Gráficos
+graficos = tk.Frame(contenedor_central, bg="#FFFFFF")
+graficos.pack(pady=(0, 20), padx=40, fill=tk.BOTH, expand=True)
+
+
 
 # Ejecutar el bucle principal de la ventana
 ventana_dashboard.mainloop()
+
+
 
 
 
