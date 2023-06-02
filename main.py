@@ -23,7 +23,7 @@ def iniciar_sesion():
     contrasena = campo_contrasena.get()
 
     # Verificar las credenciales ingresadas
-    if usuario == "tom" and contrasena == "12":
+    if usuario == "1" and contrasena == "1":
         messagebox.showinfo("Inicio de sesión", "Inicio de sesión exitoso")
         ventana_login.destroy()  # Cerrar la ventana de login
         abrir_dashboard()  # Mostrar el panel de control
