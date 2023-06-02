@@ -31,48 +31,37 @@ fuente_titulo = ("Arial", 24, "bold")
 
 ventana_dashboard.configure(bg=color_fondo)
 
-# Cargar imagen de fondo
-imagen_fondo = Image.open("sdsd.jpg")
-imagen_fondo = imagen_fondo.resize((800, 600), Image.ANTIALIAS)
-imagen_fondo = ImageTk.PhotoImage(imagen_fondo)
 
-# Mostrar imagen de fondo
-fondo = tk.Label(ventana_dashboard, image=imagen_fondo)
-fondo.place(x=0, y=0, relwidth=1, relheight=1)
+
 
 # Título del panel de control
 titulo = tk.Label(ventana_dashboard, text="Panel de Control", font=fuente_titulo, fg="#1DA1F2", bg=color_fondo)
-titulo.pack(pady=20)
+titulo.pack(pady=(20, 0), padx=20, anchor="w")  # Alinear a la izquierda (west)
 
 # Contenedor para los botones
 contenedor_botones = tk.Frame(ventana_dashboard, bg=color_fondo)
-contenedor_botones.pack(pady=50)
-
-# Estilos de los botones
-estilo_boton = ttk.Style()
-estilo_boton.configure("Boton.TButton", font=("Arial", 18, "bold"), foreground="white", background=color_boton)
+contenedor_botones.pack(pady=(10, 50), padx=20, anchor="w")  # Alinear a la izquierda (west)
 
 # Botón Resumen de Ventas
 boton_resumen_ventas = ttk.Button(contenedor_botones, text="Resumen de Ventas", style="Boton.TButton", command=abrir_resumen_ventas)
-boton_resumen_ventas.pack(pady=10, padx=100, ipadx=50)
+boton_resumen_ventas.pack(pady=10, ipadx=20, anchor="w")  # Anclar a la izquierda (west)
 
 # Botón Gestionar productos
 boton_gestionar_productos = ttk.Button(contenedor_botones, text="Gestionar productos", style="Boton.TButton", command=abrir_gestionar_productos)
-boton_gestionar_productos.pack(pady=10, padx=100, ipadx=50)
+boton_gestionar_productos.pack(pady=10, ipadx=20, anchor="w")  # Anclar a la izquierda (west)
 
 # Botón Registro de Ventas
 boton_registro_ventas = ttk.Button(contenedor_botones, text="Registro de Ventas", style="Boton.TButton", command=abrir_registro_ventas)
-boton_registro_ventas.pack(pady=10, padx=100, ipadx=50)
+boton_registro_ventas.pack(pady=10, ipadx=20, anchor="w")  # Anclar a la izquierda (west)
 
 # Gestionar Clientes
 boton_gestionar_clientes = ttk.Button(contenedor_botones, text="Gestionar Clientes", style="Boton.TButton", command=abrir_gestionar_clientes)
-boton_gestionar_clientes.pack(pady=10, padx=100, ipadx=50)
+boton_gestionar_clientes.pack(pady=10, ipadx=20, anchor="w")  # Anclar a la izquierda (west)
 
-# Centrar el contenedor de botones en la ventana
-contenedor_botones.pack(expand=True, fill=tk.BOTH)
 
 # Ejecutar el bucle principal de la ventana
 ventana_dashboard.mainloop()
+
 
 
 
