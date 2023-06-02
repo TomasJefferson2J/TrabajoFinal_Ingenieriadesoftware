@@ -41,7 +41,7 @@ espacio_blanco.pack()
 
 # Contenedor de los botones
 contenedor_botones = tk.Frame(barra_navegacion, bg=color_negro)
-contenedor_botones.pack(pady=espacio_botones)
+contenedor_botones.pack(pady=(150, espacio_botones))  # Ajusta el valor de 150 según la ubicación deseada
 
 # Botón Resumen de Ventas
 boton_resumen_ventas = ttk.Button(contenedor_botones, text="Resumen de Ventas", style="Boton.TButton", command=abrir_resumen_ventas)
@@ -67,13 +67,5 @@ contenido_principal.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 barra_navegacion_horizontal = tk.Frame(contenido_principal, bg=color_gris_oscuro, height=80)
 barra_navegacion_horizontal.pack(fill=tk.X)
 
-# Resto del contenido principal (sección inferior dentro del contenido principal)
-contenido_principal_resto = tk.Frame(contenido_principal, bg=color_blanco)
-contenido_principal_resto.pack(fill=tk.BOTH, expand=True)
-
-# Ejecutar el bucle principal de la ventana
-ventana.mainloop()
-
-
-
+# Resto del contenido principal (sección
 
